@@ -108,6 +108,17 @@
           ]
         },
         {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "value": 10
+        },
+        {
           "name": "cursor",
           "title": "Cursor",
           "type": "text",
@@ -537,6 +548,26 @@
         }
       ],
       "output_schema": {
+        "data": {
+          "tactics": [
+            {
+              "id": "",
+              "link": "",
+              "name": "",
+              "techniques": [
+                {
+                  "id": "",
+                  "link": "",
+                  "name": "",
+                  "count": "",
+                  "source": [],
+                  "description": ""
+                }
+              ],
+              "description": ""
+            }
+          ]
+        }
       }
     },
     {
@@ -605,14 +636,14 @@
           "description": "Specify the theme for secondary foreground color in hex notation."
         },
         {
-          "title": "Terciary Foreground Color",
-          "tooltip": "Specify the theme for terciary foreground color in hex notation.",
+          "title": "Tertiary Foreground Color",
+          "tooltip": "Specify the theme for tertiary foreground color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "fg3",
-          "description": "Specify the theme for terciary foreground color in hex notation."
+          "description": "Specify the theme for tertiary foreground color in hex notation."
         },
         {
           "title": "Primary Background Color",
@@ -635,14 +666,14 @@
           "description": "Specify the theme for secondary background color in hex notation."
         },
         {
-          "title": "Terciary Background Color",
-          "tooltip": "Specify the theme for terciary background color in hex notation.",
+          "title": "Tertiary Background Color",
+          "tooltip": "Specify the theme for tertiary background color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg3",
-          "description": "Specify the theme for terciary background color in hex notation."
+          "description": "Specify the theme for tertiary background color in hex notation."
         },
         {
           "title": "Theme Accent Color",
@@ -1331,7 +1362,7 @@
           "type": "checkbox",
           "name": "descriptors_only",
           "value": false,
-          "tooltip": "(Optional) Select this option to return the full object information. Clear this option (default) to return just the object descriptors."
+          "tooltip": "(Optional) Select this option to return full object information or just object descriptors. By default, it set as \"False\"."
         },
         {
           "title": "Cursor",
@@ -1877,7 +1908,8 @@
           "type": "text",
           "name": "rules",
           "tooltip": "Specify the rules based on which you want to create the Retrohunt job in Google Threat Intelligence.",
-          "placeholder": "e.g. rule demo { strings: $ = \"demo\" condition: all of them }"
+          "value": "\"e.g. rule demo { strings: $ = \"demo\" condition: all of them }\"",
+          "placeholder": "\"e.g. rule demo { strings: $ = \"demo\" condition: all of them }\""
         },
         {
           "title": "Notification Emails",
@@ -1932,6 +1964,10 @@
           "scanned_bytes": "",
           "creation_date": "",
           "progress": "",
+          "time_range": {
+            "start": "",
+            "end": ""
+          },
           "num_matches": "",
           "notification_email": "",
           "corpus": ""
@@ -2021,6 +2057,10 @@
               "eta_seconds": "",
               "num_matches": "",
               "progress": "",
+              "time_range": {
+                "start": "",
+                "end": ""
+              },
               "notification_email": "",
               "creation_date": "",
               "start_date": ""
@@ -2067,6 +2107,10 @@
             "creation_date": "",
             "num_matches": "",
             "progress": "",
+            "time_range": {
+              "start": "",
+              "end": ""
+            },
             "notification_email": "",
             "corpus": ""
           },

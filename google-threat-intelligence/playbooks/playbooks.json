@@ -621,7 +621,7 @@
                 "step_variables": {
                   "vt_data": "{{vars.result.data}}",
                   "community_votes": "{{vars.result.data.attributes['total_votes']}}",
-                  "last_analysis_stats": "{{vars.result.data.attributes['last_analysis_stats’]}"
+                  "last_analysis_stats": "{{vars.result.data.attributes['last_analysis_stats']}}"
                 }
               },
               "status": null,

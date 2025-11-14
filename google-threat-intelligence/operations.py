@@ -44,7 +44,7 @@ class GoogleThreatIntelligence(object):
                 url = self.url + url
                 headers = {
                     'x-apikey': self.api_key,
-                    'Content-Type': 'application/x-www-form-urlencoded, application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
             if files:
                 del headers['Content-Type']
@@ -708,7 +708,8 @@ def get_entities_list(config, params):
     try:
         gti = GoogleThreatIntelligence(config)
         payload = {
-            "cursor": params.get('cursor') if params.get('cursor') else ''
+            "cursor": params.get('cursor') if params.get('cursor') else '',
+            "limit": params.get('limit') if params.get('limit') else ''
         }
         query_parameter = ""
         if params.get('collection_type'):
@@ -769,9 +770,9 @@ def execute_an_api_call(config, params):
         endpoint = params.get("endpoint")
         http_method = params.get("method")
         query_params = params.get("query_params") if params.get("query_params") else {}
-        payload = params.get("payload") if params.get("payload") else {}
+        payload = json.dumps(params.get("payload")) if params.get("payload") else {}
         logger.debug("Payload: {0}".format(payload))
-        response = gti.make_rest_call(endpoint, method=http_method, params=query_params, data=json.dumps(payload))
+        response = gti.make_rest_call(endpoint, method=http_method, params=query_params, data=payload)
         return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))

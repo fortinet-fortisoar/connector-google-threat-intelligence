@@ -108,6 +108,104 @@ IP_TEMPLATE = {
         "self": ""
     },
     "attributes": {
+        "rdap": {
+            "name": "",
+            "type": "",
+            "links": [
+                {
+                    "rel": "",
+                    "href": "",
+                    "type": "",
+                    "media": "",
+                    "title": "",
+                    "value": "",
+                    "href_lang": []
+                }
+            ],
+            "events": [
+                {
+                    "links": [],
+                    "event_date": "",
+                    "event_actor": "",
+                    "event_action": ""
+                }
+            ],
+            "handle": "",
+            "port43": "",
+            "status": [],
+            "country": "",
+            "notices": [
+                {
+                    "type": "",
+                    "links": [
+                        {
+                            "rel": "",
+                            "href": "",
+                            "type": "",
+                            "media": "",
+                            "title": "",
+                            "value": "",
+                            "href_lang": []
+                        }
+                    ],
+                    "title": "",
+                    "description": []
+                }
+            ],
+            "remarks": [],
+            "entities": [
+                {
+                    "url": "",
+                    "lang": "",
+                    "links": [
+                        {
+                            "rel": "",
+                            "href": "",
+                            "type": "",
+                            "media": "",
+                            "title": "",
+                            "value": "",
+                            "href_lang": []
+                        }
+                    ],
+                    "roles": [],
+                    "events": [],
+                    "handle": "",
+                    "port43": "",
+                    "status": [],
+                    "autnums": [],
+                    "remarks": [],
+                    "entities": [],
+                    "networks": [],
+                    "public_ids": [],
+                    "vcard_array": [
+                        {
+                            "name": "",
+                            "type": "",
+                            "values": [],
+                            "parameters": {}
+                        }
+                    ],
+                    "as_event_actor": [],
+                    "rdap_conformance": [],
+                    "object_class_name": ""
+                }
+            ],
+            "ip_version": "",
+            "cidr0_cidrs": [
+                {
+                    "length": "",
+                    "v4prefix": "",
+                    "v6prefix": ""
+                }
+            ],
+            "end_address": "",
+            "parent_handle": "",
+            "start_address": "",
+            "rdap_conformance": [],
+            "object_class_name": "",
+            "arin_originas0_originautnums": []
+        },
         "asn": "",
         "jarm": "",
         "tags": [],
@@ -115,6 +213,7 @@ IP_TEMPLATE = {
             "raw": [],
             "data": ""
         },
+        "country": "",
         "network": "",
         "as_owner": "",
         "reputation": "",
