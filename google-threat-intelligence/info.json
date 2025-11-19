@@ -17,7 +17,7 @@
     "Domain_Enrichment",
     "File_Enrichment"
   ],
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/google-threat-intelligence/100/google-threat-intelligence-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -49,8 +49,8 @@
         "visible": true,
         "type": "checkbox",
         "value": true,
-        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true."
       }
     ]
   },
@@ -58,20 +58,20 @@
     {
       "operation": "get_entities_list",
       "title": "Get Entities List",
-      "description": "Retrieve a list of threats, reports, or vulnerabilities from Google Threat Intelligence based on the filter criteria you have specified.",
+      "description": "Retrieves a list of threats, reports, or vulnerabilities from Google Threat Intelligence based on the collection type, creation/modification date, and filter criteria that you have specified.",
       "category": "investigation",
       "annotation": "get_entities_list",
       "enabled": true,
       "parameters": [
         {
           "title": "Collection Type",
-          "description": "Select the type of the collection based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Collection, Threat Actor, Malware Family, Software Toolkit, Campaign, Report, or Vulnerability",
+          "description": "(Optional) Select the type of the collection based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Collection, Threat Actor, Malware Family, Software Toolkit, Campaign, Report, or Vulnerability.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
           "name": "collection_type",
-          "tooltip": "Select the type of the collection based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Collection, Threat Actor, Malware Family, Software Toolkit, Campaign, Report, or Vulnerability",
+          "tooltip": "Select the type of the collection based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Collection, Threat Actor, Malware Family, Software Toolkit, Campaign, Report, or Vulnerability.",
           "options": [
             "Collection",
             "Threat Actor",
@@ -84,7 +84,7 @@
         },
         {
           "title": "Created/Last Modified After",
-          "description": "Select a date and time to retrieve entities that include only those items that were created/last modified after the specified timestamp.",
+          "description": "(Optional) Select a date and time to retrieve entities that include only those items that were created/last modified after the specified timestamp.",
           "type": "datetime",
           "name": "creation_date",
           "required": false,
@@ -94,13 +94,13 @@
         },
         {
           "title": "Origin Type",
-          "description": "Select the type of the origin based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Partner, Crowdsourced, or Google Threat Intelligence",
+          "description": "(Optional) Select the type of the origin based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Partner, Crowdsourced, or Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "select",
           "name": "origin",
-          "tooltip": "Select the type of the collection based on which you want to retrieve entities from Google Threat Intelligence.You can choose from the following options: Partner, Crowdsourced, or Google Threat Intelligence",
+          "tooltip": "Select the type of the origin based on which you want to retrieve entities from Google Threat Intelligence. You can choose from the following options: Partner, Crowdsourced, or Google Threat Intelligence.",
           "options": [
             "Partner",
             "Crowdsourced",
@@ -110,12 +110,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum limit is 40.",
           "value": 10
         },
         {
@@ -327,7 +327,7 @@
     {
       "operation": "get_entities_details",
       "title": "Get Entities Details",
-      "description": "Retrieve a specific info of threats, reports, or vulnerabilities from Google Threat Intelligence based on the Object ID you have specified.",
+      "description": "Retrieves a specific info of threats, reports, or vulnerabilities from Google Threat Intelligence based on the Object ID that you have specified.",
       "category": "investigation",
       "annotation": "get_entities_details",
       "enabled": true,
@@ -339,8 +339,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the ID of the object you want to retrieve it's details from Google Threat Intelligence. Note: You can retrieve ID from the \"Get Entities List\" action.",
-          "description": "Specify the ID of the object you want to retrieve it's details from Google Threat Intelligence. Note: You can retrieve ID from the \"Get Entities List\" action."
+          "tooltip": "Specify the ID of the object whose details are to be retrieved from Google Threat Intelligence. Note: You can retrieve the object ID from the \"Get Entities List\" action.",
+          "description": "Specify the ID of the object whose details are to be retrieved from Google Threat Intelligence. Note: You can retrieve the object ID from the \"Get Entities List\" action."
         }
       ],
       "output_schema": {
@@ -531,7 +531,7 @@
     {
       "operation": "get_mitre_tactics_and_techniques",
       "title": "Get Mitre Tactics and Techniques",
-      "description": "Retrieves a list of MITRE tactics with their correspondent techniques that are associated with the threats, reports, or vulnerabilities from Google Threat Intelligence based on the Object ID you have specified.",
+      "description": "Retrieves a list of MITRE tactics with their correspondent techniques that are associated with the threats, reports, or vulnerabilities from Google Threat Intelligence based on the Object ID that you have specified.",
       "category": "investigation",
       "annotation": "get_mitre_tactics_and_techniques",
       "enabled": true,
@@ -543,8 +543,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the ID of the object you want to retrieve it's mitre tactics and techniques from Google Threat Intelligence. Note: You can retrieve ID from the \"Get Entities List\" action.",
-          "description": "Specify the ID of the object you want to retrieve it's mitre tactics and techniques from Google Threat Intelligence. Note: You can retrieve ID from the \"Get Entities List\" action."
+          "tooltip": "Specify the ID of the object whose MITRE tactics and techniques are to be retrieved from Google Threat Intelligence. Note: You can retrieve the object ID from the \"Get Entities List\" action.",
+          "description": "Specify the ID of the object whose MITRE tactics and techniques are to be retrieved from Google Threat Intelligence. Note: You can retrieve the object ID from the \"Get Entities List\" action."
         }
       ],
       "output_schema": {
@@ -608,7 +608,7 @@
           "visible": true,
           "type": "select",
           "name": "theme",
-          "description": "You can select either Light or Dark as the widget theme. By default, it is set to Dark.",
+          "description": "(Optional) You can select either Light or Dark as the widget theme. By default, it is set to Dark.",
           "options": [
             "Light",
             "Dark"
@@ -623,7 +623,7 @@
           "visible": true,
           "type": "text",
           "name": "fg1",
-          "description": "Specify the theme for primary foreground color in hex notation."
+          "description": "(Optional) Specify the theme for primary foreground color in hex notation."
         },
         {
           "title": "Secondary Foreground Color",
@@ -633,7 +633,7 @@
           "visible": true,
           "type": "text",
           "name": "fg2",
-          "description": "Specify the theme for secondary foreground color in hex notation."
+          "description": "(Optional) Specify the theme for secondary foreground color in hex notation."
         },
         {
           "title": "Tertiary Foreground Color",
@@ -643,7 +643,7 @@
           "visible": true,
           "type": "text",
           "name": "fg3",
-          "description": "Specify the theme for tertiary foreground color in hex notation."
+          "description": "(Optional) Specify the theme for tertiary foreground color in hex notation."
         },
         {
           "title": "Primary Background Color",
@@ -653,7 +653,7 @@
           "visible": true,
           "type": "text",
           "name": "bg1",
-          "description": "Specify the theme for primary background color in hex notation."
+          "description": "(Optional) Specify the theme for primary background color in hex notation."
         },
         {
           "title": "Secondary Background Color",
@@ -663,7 +663,7 @@
           "visible": true,
           "type": "text",
           "name": "bg2",
-          "description": "Specify the theme for secondary background color in hex notation."
+          "description": "(Optional) Specify the theme for secondary background color in hex notation."
         },
         {
           "title": "Tertiary Background Color",
@@ -673,7 +673,7 @@
           "visible": true,
           "type": "text",
           "name": "bg3",
-          "description": "Specify the theme for tertiary background color in hex notation."
+          "description": "(Optional) Specify the theme for tertiary background color in hex notation."
         },
         {
           "title": "Theme Accent Color",
@@ -683,7 +683,7 @@
           "visible": true,
           "type": "text",
           "name": "acc",
-          "description": "Specify the theme for accent color in hex notation."
+          "description": "(Optional) Specify the theme for accent color in hex notation."
         }
       ]
     },
@@ -710,7 +710,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "description": "Type of file that you want to submit to Google Threat Intelligence for analysis. Type can be an Attachment ID or a File IRI."
+          "description": "Specify the type of file to submit to Google Threat Intelligence for analysis. Type can be an Attachment ID or a File IRI."
         },
         {
           "name": "value",
@@ -719,7 +719,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "description": "Reference ID that is used to access the attachment metadata from the FortiSOAR™ Attachments module.\nIn the playbook, this defaults to the{{vars.attachment_id}} value or the {{vars.file_iri}} value."
+          "description": "Specify the reference ID to access the attachment metadata from the FortiSOAR™'s Attachments module. In the playbook, this defaults to the{{vars.attachment_id}} value or the {{vars.file_iri}} value."
         }
       ]
     },
@@ -737,6 +737,7 @@
       "parameters": [
         {
           "title": "URL",
+          "tooltip": "Specify the URL that you want to submit to Google Threat Intelligence for scanning.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -749,7 +750,7 @@
     {
       "operation": "get_ip_reputation",
       "title": "Get IP Reputation",
-      "description": "Retrieves a report from Google Threat Intelligence for the IP address submitted to determine if it is suspicious based on the IP address you have specified.",
+      "description": "Retrieves an IP reputation report from Google Threat Intelligence to determine if it is suspicious based on the IP address you have specified.",
       "category": "investigation",
       "api_output_schema": "get_output_schema_ip",
       "annotation": "get_ip_reputation",
@@ -758,12 +759,13 @@
       "parameters": [
         {
           "title": "IP",
+          "tooltip": "Specify the IP address for which to retrieve a Google Threat Intelligence report.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "ip",
-          "description": "Specify the IP address for which you want to retrieve a Google Threat Intelligence report."
+          "description": "Specify the IP address for which to retrieve a Google Threat Intelligence report."
         },
         {
           "title": "Relationships to Include",
@@ -773,7 +775,7 @@
           "type": "multiselect",
           "name": "relationships",
           "description": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
-          "tooltip": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
+          "tooltip": "Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
           "options": [
             "Comments",
             "Historical SSL Certificates",
@@ -791,7 +793,7 @@
       "operation": "get_domain_reputation",
       "title": "Get Domain Reputation",
       "api_output_schema": "get_output_schema_domain",
-      "description": "Retrieves a report from Google Threat Intelligence for the domain submitted to determine if it is suspicious based on the domain name you have specified.",
+      "description": "Retrieves a domain reputation report from Google Threat Intelligence to determine if it is suspicious based on the domain name you have specified.",
       "category": "investigation",
       "annotation": "get_domain_reputation",
       "output_schema": {},
@@ -799,6 +801,7 @@
       "parameters": [
         {
           "title": "Domain",
+          "tooltip": "Specify the domain name for which you want to retrieve a Google Threat Intelligence report.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -814,7 +817,7 @@
           "type": "multiselect",
           "name": "relationships",
           "description": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
-          "tooltip": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
+          "tooltip": "Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
           "options": [
             "Historical Whois",
             "Subdomains",
@@ -837,7 +840,7 @@
       "operation": "get_url_reputation",
       "title": "Get URL Reputation",
       "api_output_schema": "get_output_schema_url",
-      "description": "Retrieves a report from Google Threat Intelligence for the URL submitted to determine if it is suspicious based on the URL you have specified.",
+      "description": "Retrieves a URL reputation report from Google Threat Intelligence to determine if it is suspicious based on the URL you have specified.",
       "category": "investigation",
       "annotation": "get_url_reputation",
       "output_schema": {},
@@ -845,6 +848,7 @@
       "parameters": [
         {
           "title": "URL",
+          "tooltip": "Specify the URL for which you want to retrieve a Google Threat Intelligence report.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -860,7 +864,7 @@
           "type": "multiselect",
           "name": "relationships",
           "description": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
-          "tooltip": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
+          "tooltip": "Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
           "options": [
             "Comments",
             "Graphs",
@@ -876,7 +880,7 @@
       "operation": "get_file_reputation",
       "title": "Get File Reputation",
       "api_output_schema": "get_output_schema_file",
-      "description": "Retrieves a report from Google Threat Intelligence for the file that you have submitted to determine if it is suspicious based on the file hash value you have specified.",
+      "description": "Retrieves a file reputation report from Google Threat Intelligence to determine if it is suspicious based on the file hash value you have specified.",
       "category": "investigation",
       "annotation": "get_file_reputation",
       "output_schema": {},
@@ -884,6 +888,7 @@
       "parameters": [
         {
           "title": "File Hash",
+          "tooltip": "Specify the File Hash of the file for which you want to retrieve a Google Threat Intelligence report.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -899,7 +904,7 @@
           "type": "multiselect",
           "name": "relationships",
           "description": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
-          "tooltip": "(Optional) Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
+          "tooltip": "Select the relationships such as Comments, Graphs, etc. that you want to include in the output of this operation.",
           "options": [
             "Behaviours",
             "Bundled Files",
@@ -921,7 +926,7 @@
     {
       "operation": "analysis_file",
       "title": "Get File Or URL Analysis Report",
-      "description": "Retrieves details of a File or URL analysis from Google Threat Intelligence for the File or URL that you had submitted for scanning and analysis to Google Threat Intelligence using the \"Submit File\" or \"Submit URL for scanning\" action.",
+      "description": "Retrieves details of a File or a URL analysis from Google Threat Intelligence based on the File or URL that you have specified for scanning and analysis.",
       "category": "investigation",
       "annotation": "analysis_file",
       "enabled": true,
@@ -1002,7 +1007,7 @@
           "visible": true,
           "type": "select",
           "name": "type",
-          "description": "Select the type, either File or URL, whose analysis details you want to retrieve from Google Threat Intelligence.",
+          "description": "(Optional) Select the type, either File or URL, whose analysis details you want to retrieve from Google Threat Intelligence.",
           "tooltip": "Select the type, either File or URL, whose analysis details you want to retrieve from Google Threat Intelligence.",
           "options": [
             "File",
@@ -1016,7 +1021,7 @@
           "visible": true,
           "type": "text",
           "name": "analysis_id",
-          "tooltip": "Specify the ID of the File or URL analysis whose details you want to retrieve from Google Threat Intelligence. Note: To retrieve the analysis ID, you can use the \"Submit File\" or \"Submit URL for scanning\" operation.",
+          "tooltip": "Specify the ID of the File or URL analysis whose details you want to retrieve from Google Threat Intelligence. Note: To retrieve the analysis ID, you can use the \"Submit File\" or \"Submit URL for Scanning\" operation.",
           "description": "Specify the ID of the File or URL analysis whose details you want to retrieve from Google Threat Intelligence. Note: To retrieve the analysis ID, you can use the \"Submit File\" or \"Submit URL for scanning\" operation."
         }
       ]
@@ -1024,7 +1029,7 @@
     {
       "operation": "download_file",
       "title": "Download File",
-      "description": "Downloads report for a specified file from Google Threat Intelligence based on the hash value of the file you have specified.",
+      "description": "Downloads a file from Google Threat Intelligence, to FortiSOAR™'s Attachments module, based on the hash value of the file you have specified.",
       "category": "investigation",
       "annotation": "download_file",
       "enabled": true,
@@ -1109,31 +1114,31 @@
     {
       "operation": "create_zip_file",
       "title": "Create ZIP File",
-      "description": "Creates a password-protected ZIP file with the Google Threat Intelligence files based on the hash values of the Google files and the password you have specified.",
+      "description": "Creates a password-protected ZIP file based on the hash values of the Google files and the password you have specified.",
       "category": "investigation",
       "annotation": "create_zip_file",
       "enabled": true,
       "parameters": [
         {
           "title": "Hashes",
-          "description": "Specify the list of comma-separated hash values of the files based on which you want to create a zip file in Google Threat Intelligence.",
+          "description": "Specify a list of comma-separated hash values of files to create a zip file in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "hashes",
-          "tooltip": "Specify the list of comma-separated hash values of the files based on which you want to create a zip file in Google Threat Intelligence.",
+          "tooltip": "Specify a list of comma-separated hash values of files to create a zip file in Google Threat Intelligence.",
           "placeholder": "e.g. e3b0c44298fc1c149afbf4c8996fb92,ae41e4649b934ca495991b7852b855"
         },
         {
           "title": "Password",
-          "description": "(Optional) Specify the password for protecting the ZIP file that is being created with Google files.",
+          "description": "(Optional) Specify a password for protecting the ZIP file that is being created with Google files.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "password",
           "name": "password",
-          "tooltip": "(Optional) Specify the password for protecting the ZIP file that is being created with Google files."
+          "tooltip": "Specify a password for protecting the ZIP file that is being created with Google files."
         }
       ],
       "output_schema": {
@@ -1153,20 +1158,20 @@
     {
       "operation": "get_zip_file_status",
       "title": "Get ZIP File Status",
-      "description": "Retrieves information of the ZIP file from Google Threat Intelligence based on the zip file ID you have specified.",
+      "description": "Retrieves information about a ZIP file from Google Threat Intelligence based on the zip file ID you have specified.",
       "category": "investigation",
       "annotation": "get_zip_file_status",
       "enabled": true,
       "parameters": [
         {
           "title": "ZIP File ID",
-          "description": "Specify the file identifier of the ZIP file for which you want to retrieve the zip file information from Google Threat Intelligence.",
+          "description": "Specify the file identifier of the ZIP file whose information is to be retrieved from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the file identifier of the ZIP file for which you want to retrieve the zip file information from Google Threat Intelligence."
+          "tooltip": "Specify the file identifier of the ZIP file whose information is to be retrieved from Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -1186,20 +1191,20 @@
     {
       "operation": "get_zip_file_url",
       "title": "Get ZIP File URL",
-      "description": "Retrieves a signed URL from where you can download the specified ZIP file from Google Threat Intelligence based on the zip file ID you have specified. Note: The retrieved URL expires after 1 hour.",
+      "description": "Retrieves a signed download URL from Google Threat Intelligence based on the zip file ID you have specified. Note: The retrieved URL expires after 1 hour.",
       "category": "investigation",
       "annotation": "get_zip_file_url",
       "enabled": true,
       "parameters": [
         {
           "title": "ZIP File ID",
-          "description": "Specify the file identifier of the ZIP file for which you want to retrieve a signed URL from Google Threat Intelligence.",
+          "description": "Specify the file identifier of the ZIP file whose signed URL is to be retrieved from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the file identifier of the ZIP file for which you want to retrieve a signed URL from Google Threat Intelligence."
+          "tooltip": "Specify the file identifier of the ZIP file whose signed URL is to be retrieved from Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -1209,7 +1214,7 @@
     {
       "operation": "download_zip_file",
       "title": "Download ZIP File",
-      "description": "Downloads a zip file from Google Threat Intelligence based on the zip file ID you have specified.",
+      "description": "Downloads a zip file from Google Threat Intelligence, to FortiSOAR™'s Attachments module, based on the zip file ID you have specified.",
       "category": "investigation",
       "annotation": "download_zip_file",
       "enabled": true,
@@ -1294,20 +1299,20 @@
     {
       "operation": "get_pcap_file_behaviour",
       "title": "Get PCAP File Behaviour",
-      "description": "Retrieves a PCAP file from Google Threat Intelligence based on the report ID you have specified. A PCAP file is generated while analyzing the file’s behavior in Google Threat Intelligence.",
+      "description": "Retrieves a PCAP file from Google Threat Intelligence based on the report ID you have specified. A PCAP file is generated while analyzing a file's behavior in Google Threat Intelligence.",
       "category": "investigation",
       "annotation": "get_pcap_file_behaviour",
       "enabled": true,
       "parameters": [
         {
           "title": "Report ID",
-          "description": "Specify the Report ID of the sandbox from which you want to retrieve the PCAP file from Google Threat Intelligence. A PCAP file is generated while analyzing the file’s behavior in Google Threat Intelligence.",
+          "description": "Specify the report ID of the sandbox from which to retrieve the PCAP file. A PCAP file is generated while analyzing the file's behavior in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "sandbox_id",
-          "tooltip": "Specify the Report ID of the sandbox from which you want to retrieve the PCAP file from Google Threat Intelligence. A PCAP file is generated while analyzing the file’s behavior in Google Threat Intelligence."
+          "tooltip": "Specify the report ID of the sandbox from which to retrieve the PCAP file. A PCAP file is generated while analyzing the file's behavior in Google Threat Intelligence."
         }
       ],
       "output_schema": {}
@@ -1315,20 +1320,20 @@
     {
       "operation": "search_intelligence",
       "title": "Search Intelligence",
-      "description": "Searches for files in Google Threat Intelligence using the query and other input parameters you have specified.",
+      "description": "Searches for files in Google Threat Intelligence based on a query and other filter criteria you have specified.",
       "category": "investigation",
       "annotation": "search_intelligence",
       "enabled": true,
       "parameters": [
         {
           "title": "Query",
-          "description": "Specify a query in the key: value pair using which you want to search files in Google Threat Intelligence. For example, content: \"hello World\".",
+          "description": "Specify a query as a key:value pair using which to search files in Google Threat Intelligence. For example, content: \"hello World\".",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "query",
-          "tooltip": "Specify a query in the key: value pair using which you want to search files in Google Threat Intelligence. For example, content: \"hello World\".",
+          "tooltip": "Specify a query as a key:value pair using which to search files in Google Threat Intelligence. For example, content: \"hello World\".",
           "placeholder": "e.g. content: \"hello world\""
         },
         {
@@ -1338,19 +1343,19 @@
           "visible": true,
           "type": "text",
           "name": "order",
-          "description": "(Optional) Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect.",
-          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect. For e.g last_submission_date-, last_submission_date+, etc.",
+          "description": "(Optional) Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your Query parameter contains content search, then the Order parameter does not have any effect.",
+          "tooltip": "Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your Query parameter contains content search, then the Order parameter does not have any effect. For e.g last_submission_date-, last_submission_date+, etc.",
           "placeholder": "e.g last_submission_date-"
         },
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 300.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum limit is 300.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 300.",
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum limit is 300.",
           "value": 10
         },
         {
@@ -1362,17 +1367,17 @@
           "type": "checkbox",
           "name": "descriptors_only",
           "value": false,
-          "tooltip": "(Optional) Select this option to return full object information or just object descriptors. By default, it set as \"False\"."
+          "tooltip": "Select this option to return the full object information. Clear this option (default) to return just the object descriptors."
         },
         {
           "title": "Cursor",
-          "description": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "description": "(Optional) Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "tooltip": "Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
           "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
@@ -1569,56 +1574,56 @@
       "parameters": [
         {
           "title": "Ruleset Name",
-          "description": "Specify the name of the hunting livehunt ruleset that you want to create in Google Threat Intelligence.",
+          "description": "Specify the name of the livehunt ruleset to create in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "name",
-          "tooltip": "Specify the name of the hunting livehunt ruleset that you want to create in Google Threat Intelligence."
+          "tooltip": "Specify the name of the livehunt ruleset to create in Google Threat Intelligence."
         },
         {
           "title": "Rules",
-          "description": "Specify the rules based on which you want to create the hunting livehunt ruleset in Google Threat Intelligence.",
+          "description": "Specify the rules based on which to create the livehunt ruleset in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "rules",
-          "tooltip": "Specify the rules based on which you want to create the hunting livehunt ruleset in Google Threat Intelligence.",
+          "tooltip": "Specify the rules based on which to create the livehunt ruleset in Google Threat Intelligence.",
           "placeholder": "e.g. rule foobar {strings: $ = \"foobar\" condition: all of them}"
         },
         {
           "title": "Enabled",
-          "description": "(Optional) Select this option (default) to 'enable' the livehunt ruleset that you want to create in Google Threat Intelligence.",
+          "description": "(Optional) Select this option (default) to enable the livehunt ruleset being created in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
           "name": "enabled",
           "value": true,
-          "tooltip": "(Optional) Select this option (default) to 'enable' the livehunt ruleset that you want to create in Google Threat Intelligence."
+          "tooltip": "Select this option (default) to enable the livehunt ruleset being created in Google Threat Intelligence."
         },
         {
           "title": "Limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 100.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 100.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "limit",
           "value": 100,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 100."
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 100."
         },
         {
           "title": "Notification Emails",
-          "description": "(Optional) Specify the list of comma-separated notifications emails using which you want to create the livehunt ruleset in Google Threat Intelligence.",
+          "description": "(Optional) Specify a list of comma-separated notification emails to create the livehunt ruleset in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "notification_emails",
-          "tooltip": "(Optional) Specify the list of comma-separated notifications emails using which you want to create the livehunt ruleset in Google Threat Intelligence.",
+          "tooltip": "Specify a list of comma-separated notification emails to create the livehunt ruleset in Google Threat Intelligence.",
           "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com"
         }
       ],
@@ -1647,20 +1652,20 @@
     {
       "operation": "get_livehunt_rulesets_list",
       "title": "Get Livehunt Rulesets List",
-      "description": "Retrieves a list of livehunt rulesets from Google Threat Intelligence based on the filter and other input parameters that you have specified.",
+      "description": "Retrieves a list of livehunt rulesets from Google Threat Intelligence based on a query and other filter criteria you have specified.",
       "category": "investigation",
       "annotation": "get_livehunt_rulesets_list",
       "enabled": true,
       "parameters": [
         {
           "title": "Filter",
-          "description": "(Optional) Specify the filter using values of certain attributes, for example, filter=enabled:true, based on which you want to filter the livehunt rulesets retrieved from Google Threat Intelligence.",
+          "description": "(Optional) Specify a filter using values of certain attributes, for example, filter=enabled:true, based on which to filter the retrieved livehunt rulesets from Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "filter",
-          "tooltip": "(Optional) Specify the filter using values of certain attributes, for example, filter=enabled:true, based on which you want to filter the livehunt rulesets retrieved from Google Threat Intelligence.",
+          "tooltip": "Specify a filter using values of certain attributes, for example, filter=enabled:true, based on which to filter the retrieved livehunt rulesets from Google Threat Intelligence.",
           "placeholder": "e.g. enabled:true"
         },
         {
@@ -1670,30 +1675,30 @@
           "visible": true,
           "type": "text",
           "name": "order",
-          "description": "(Optional) Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect.",
-          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect. For e.g creation_date+, creation_date-, etc.",
+          "description": "(Optional) Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your Query parameter contains content search, then the Order parameter does not have any effect.",
+          "tooltip": "Specify the order in which you want to sort the results retrieved from Google Threat Intelligence. Note: If your Query parameter contains content search, then the Order parameter does not have any effect. For e.g creation_date+, creation_date-, etc.",
           "placeholder": "e.g. creation_date+"
         },
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum allowed limit is 40.",
           "value": 10
         },
         {
           "title": "Cursor",
-          "description": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "description": "(Optional) Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "tooltip": "Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls",
           "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
@@ -1740,13 +1745,13 @@
       "parameters": [
         {
           "title": "Ruleset ID",
-          "description": "Specify the ID of the livehunt ruleset for which you want to retrieve details from Google Threat Intelligence.",
+          "description": "Specify the ID of the livehunt ruleset for which to retrieve details from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the livehunt ruleset for which you want to retrieve details from Google Threat Intelligence."
+          "tooltip": "Specify the ID of the livehunt ruleset for which to retrieve details from Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -1775,7 +1780,7 @@
     {
       "operation": "update_livehunt_ruleset",
       "title": "Update Livehunt Ruleset",
-      "description": "Updates a specific hunting livehunt ruleset in Google Threat Intelligence based on the ruleset id, ruleset name, rules, and other input parameters that you have specified.",
+      "description": "Updates a specific hunting livehunt ruleset in Google Threat Intelligence based on the ruleset ID, ruleset name, rules, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "update_livehunt_ruleset",
       "enabled": true,
@@ -1792,57 +1797,57 @@
         },
         {
           "title": "Ruleset Name",
-          "description": "Specify the name of the livehunt ruleset that you want to update in Google Threat Intelligence.",
+          "description": "Specify the name of the livehunt ruleset to update in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "name",
-          "tooltip": "Specify the name of the livehunt ruleset that you want to update in Google Threat Intelligence."
+          "tooltip": "Specify the name of the livehunt ruleset to update in Google Threat Intelligence."
         },
         {
           "title": "Rules",
-          "description": "Specify the rules based on which you want to update the hunting livehunt ruleset in Google Threat Intelligence.",
+          "description": "Specify the rules to update the hunting livehunt ruleset in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "rules",
-          "tooltip": "Specify the rules based on which you want to update the hunting livehunt ruleset in Google Threat Intelligence.",
+          "tooltip": "Specify the rules to update the hunting livehunt ruleset in Google Threat Intelligence.",
           "placeholder": "e.g. rule foobar { strings: $ = \"foobar\" condition: all of them }"
         },
         {
           "title": "Enabled",
-          "description": "(Optional) Select this option (default) to 'enable' the livehunt ruleset that you want to update in Google Threat Intelligence.",
+          "description": "(Optional) Select this option (default) to enable the livehunt ruleset that you want to update in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
           "name": "enabled",
           "value": true,
-          "tooltip": "(Optional) Select this option (default) to 'enable' the livehunt ruleset that you want to update in Google Threat Intelligence."
+          "tooltip": "Select this option (default) to enable the livehunt ruleset that you want to update in Google Threat Intelligence."
         },
         {
           "title": "Limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 100.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 100.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "limit",
           "value": 100,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 100."
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 100."
         },
         {
           "title": "Notification Emails",
-          "description": "(Optional) Specify the list of comma-separated notifications emails using which you want to update the livehunt ruleset in Google Threat Intelligence.",
+          "description": "(Optional) Specify a list of comma-separated notification emails to update the livehunt ruleset in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "notification_emails",
           "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com",
-          "tooltip": "(Optional) Specify the list of comma-separated notifications emails using which you want to update the livehunt ruleset in Google Threat Intelligence."
+          "tooltip": "Specify a list of comma-separated notification emails to update the livehunt ruleset in Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -1878,13 +1883,13 @@
       "parameters": [
         {
           "title": "Ruleset ID",
-          "description": "Specify the ID of the livehunt ruleset for which you want to remove the livehunt ruleset details from Google Threat Intelligence.",
+          "description": "Specify the ID of the livehunt ruleset to remove from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the livehunt ruleset for which you want to remove the livehunt ruleset details from Google Threat Intelligence."
+          "tooltip": "Specify the ID of the livehunt ruleset to remove from Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -1894,36 +1899,36 @@
     {
       "operation": "create_retrohunt_job",
       "title": "Create Retrohunt Job",
-      "description": "Creates a Retrohunt job in Google Threat Intelligence based on the rules, and other input parameters that you have specified.",
+      "description": "Creates a retro-hunt job in Google Threat Intelligence based on the rules, and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "create_retrohunt_job",
       "enabled": true,
       "parameters": [
         {
           "title": "Rules",
-          "description": "Specify the rules based on which you want to create the Retrohunt job in Google Threat Intelligence.",
+          "description": "Specify the rules based on which to create the retro-hunt job in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "rules",
-          "tooltip": "Specify the rules based on which you want to create the Retrohunt job in Google Threat Intelligence.",
+          "tooltip": "Specify the rules based on which to create the retro-hunt job in Google Threat Intelligence.",
           "value": "\"e.g. rule demo { strings: $ = \"demo\" condition: all of them }\"",
           "placeholder": "\"e.g. rule demo { strings: $ = \"demo\" condition: all of them }\""
         },
         {
           "title": "Notification Emails",
-          "description": "(Optional) Specify the list of comma-separated notifications emails using which you want to create the Retrohunt job in Google Threat Intelligence.",
+          "description": "(Optional) Specify a list of comma-separated notifications emails using which to create the retro-hunt job in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "notification_emails",
-          "tooltip": "(Optional) Specify the list of comma-separated notifications emails using which you want to create the Retrohunt job in Google Threat Intelligence."
+          "tooltip": "Specify a list of comma-separated notifications emails using which to create the retro-hunt job in Google Threat Intelligence."
         },
         {
           "title": "Corpus",
-          "description": "(Optional) Select the dataset you want to scan with the job that you want to create in Google Threat Intelligencel. You can between Main or GoodWare.",
+          "description": "(Optional) Select the dataset to scan with the job being created in Google Threat Intelligence. You can choose from Main or GoodWare.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -1933,27 +1938,27 @@
             "Main",
             "GoodWare"
           ],
-          "tooltip": "(Optional) Select the dataset you want to scan with the job that you want to create in Google Threat Intelligence. You can between Main or GoodWare."
+          "tooltip": "Select the dataset to scan with the job being created in Google Threat Intelligence. You can choose from Main or GoodWare."
         },
         {
           "title": "Start Time",
-          "description": "(Optional) Specify the starting DateTime from when you want to create the Retrohunt job in Google Threat Intelligence.",
+          "description": "(Optional) Specify the start date and time of the retro-hunt job being created in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "start_time",
-          "tooltip": "(Optional) Specify the starting DateTime from when you want to create the Retrohunt job in Google Threat Intelligence."
+          "tooltip": "Specify the start date and time of the retro-hunt job being created in Google Threat Intelligence"
         },
         {
           "title": "End Time",
-          "description": "(Optional) Specify the ending DateTime till when you want to create the Retrohunt job in Google Threat Intelligence.",
+          "description": "(Optional) Specify the end date and time of the retro-hunt job being created in Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "datetime",
           "name": "end_time",
-          "tooltip": "(Optional) Specify the ending DateTime till when you want to create the Retrohunt job in Google Threat Intelligence."
+          "tooltip": "Specify the end date and time of the retro-hunt job being created in Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -1982,20 +1987,20 @@
     {
       "operation": "abort_retrohunt_job",
       "title": "Abort Retrohunt Job",
-      "description": "Aborts a specific Retrohunt job in Google Threat Intelligence based on the job ID you have specified.",
+      "description": "Aborts a specific retro-hunt job in Google Threat Intelligence based on the job ID you have specified.",
       "category": "investigation",
       "annotation": "abort_retrohunt_job",
       "enabled": true,
       "parameters": [
         {
           "title": "Job ID",
-          "description": "Specify the ID of the Retrohunt job that you want to abort in Google Threat Intelligence.",
+          "description": "Specify the ID of the retro-hunt job to abort in Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the Retrohunt job that you want to abort in Google Threat Intelligence."
+          "tooltip": "Specify the ID of the retro-hunt job to abort in Google Threat Intelligence."
         }
       ],
       "output_schema": {}
@@ -2003,42 +2008,42 @@
     {
       "operation": "get_retrohunt_jobs_list",
       "title": "Get Retrohunt Jobs List",
-      "description": "Retrieves a list of all Retrohunt jobs from Google Threat Intelligence based on the filter and other input parameters that you have specified.",
+      "description": "Retrieves a list of all retro-hunt jobs from Google Threat Intelligence based on a query and other filter criteria you have specified.",
       "category": "investigation",
       "annotation": "get_retrohunt_jobs_list",
       "enabled": true,
       "parameters": [
         {
           "title": "Filter",
-          "description": "(Optional) Specify the filter using values of certain attributes, for example, filter=tag:my_rule, based on which you want to filter the Retrohunt jobs retrieved from Google Threat Intelligence.",
+          "description": "(Optional)  Specify a filter using values of certain attributes, for example, filter=tag:my_rule, based on which you want to filter the retro-hunt jobs retrieved from Google Threat Intelligence.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "filter",
-          "tooltip": "(Optional) Specify the filter using values of certain attributes, for example, filter=tag:my_rule, based on which you want to filter the Retrohunt jobs retrieved from Google Threat Intelligence.",
+          "tooltip": " Specify a filter using values of certain attributes, for example, filter=tag:my_rule, based on which you want to filter the retro-hunt jobs retrieved from Google Threat Intelligence.",
           "placeholder": "e.g. tag:my_rule"
         },
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10 and maximum allowed limit is 40.",
           "value": 10
         },
         {
           "title": "Cursor",
-          "description": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "description": "(Optional) Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "tooltip": "Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
           "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
@@ -2080,20 +2085,20 @@
     {
       "operation": "get_retrohunt_job_details",
       "title": "Get Retrohunt Job Details",
-      "description": "Retrieves details for a specific Retrohunt job from Google Threat Intelligence based on the job ID you have specified.",
+      "description": "Retrieves details for a specific retrohunt job from Google Threat Intelligence based on the job ID you have specified.",
       "category": "investigation",
       "annotation": "get_retrohunt_job_details",
       "enabled": true,
       "parameters": [
         {
           "title": "Job ID",
-          "description": "Specify the ID of the Retrohunt job for which you want to retrieve details from Google Threat Intelligence.",
+          "description": "Specify the ID of the retro-hunt job whose details to retrieve from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the Retrohunt job for which you want to retrieve details from Google Threat Intelligence."
+          "tooltip": "Specify the ID of the retro-hunt job whose details to retrieve from Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -2125,41 +2130,41 @@
     {
       "operation": "get_retrohunt_job_matching_files",
       "title": "Get Retrohunt Job Matching Files",
-      "description": "Retrieves a list of all Retrohunt job matching files from Google Threat Intelligence.",
+      "description": "Retrieves a list of all retro-hunt job matching files from Google Threat Intelligence based on the job ID and other filter criteria you have specified..",
       "category": "investigation",
       "annotation": "get_retrohunt_job_matching_files",
       "enabled": true,
       "parameters": [
         {
           "title": "Job ID",
-          "description": "Specify the ID of the Retrohunt job for which you want to retrieve details from Google Threat Intelligence.",
+          "description": "Specify the ID of the retro-hunt job whose details are to be retrieved from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the Retrohunt job for which you want to retrieve details from Google Threat Intelligence."
+          "tooltip": "Specify the ID of the retro-hunt job whose details are to be retrieved from Google Threat Intelligence."
         },
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response. By default, this is set to 10.",
           "value": 10
         },
         {
           "title": "Cursor",
-          "description": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "description": "(Optional) Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "tooltip": "Specify this parameter only if the previous operation returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls.",
           "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
@@ -2338,20 +2343,20 @@
     {
       "operation": "delete_retrohunt_job",
       "title": "Delete Retrohunt Job",
-      "description": "Deletes a specific Retrohunt job from Google Threat Intelligence based on the Retrohunt job ID you have specified.",
+      "description": "Deletes a specific retro-hunt job from Google Threat Intelligence based on the retro-hunt job ID you have specified.",
       "category": "investigation",
       "annotation": "delete_retrohunt_job",
       "enabled": true,
       "parameters": [
         {
           "title": "Job ID",
-          "description": "Specify the ID of the Retrohunt job that you want to delete from Google Threat Intelligence.",
+          "description": "Specify the ID of the retro-hunt job to delete from Google Threat Intelligence.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the Retrohunt job that you want to delete from Google Threat Intelligence."
+          "tooltip": "Specify the ID of the retro-hunt job to delete from Google Threat Intelligence."
         }
       ],
       "output_schema": {
@@ -2374,7 +2379,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "description": "Select an HTTP action for the request. You can select from the following options:  \n\nDELETE \n\nGET \n\nPATCH \n\nPOST \n\nPUT ",
+          "description": "Select an HTTP action for the request. You can select from the following options: DELETE, GET, PATCH, POST, and PUT.",
           "options": [
             "GET",
             "POST",
