@@ -1367,7 +1367,7 @@
           "type": "checkbox",
           "name": "descriptors_only",
           "value": false,
-          "tooltip": "Select this option to return the full object information. Clear this option (default) to return just the object descriptors."
+          "tooltip": "Select this option to return only object descriptors. By default, it is set to false, which returns the full object information."
         },
         {
           "title": "Cursor",
